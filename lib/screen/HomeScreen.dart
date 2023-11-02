@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/screen/Login.dart';
 import 'package:netflix_clone/screen/Pantalla.dart';
+import 'package:page_view_indicators/page_view_indicators.dart';
 
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:page_view_indicators/circle_page_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final PageController _pageController = PageController(initialPage: 0);
-  int _currentPage = 0;
+
   final _pageIndexNotifier = ValueNotifier<int>(0);
 
   @override
@@ -67,12 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           PageView(
             controller: _pageController,
-            onPageChanged: (index) {
-              setState(() {
-                _currentPage = index;
-                _pageIndexNotifier.value = index;
-              });
-            },
+            // Eliminamos la animación onPageChanged
             children: [
               CustomPage(
                 backgroundImage: "assets/Elite.jpeg",
@@ -120,21 +114,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Align(
-            alignment:
-                Alignment(0, 0.8), // Alineación personalizada cerca del botón
+            alignment: Alignment(0, 0.8),
             child: CirclePageIndicator(
               currentPageNotifier: _pageIndexNotifier,
-              itemCount: 4, // Número total de páginas
-              selectedDotColor: Colors.white, // Color del punto seleccionado
-              dotColor: Colors.grey, // Color de los puntos no seleccionados
-              size: 12.0, // Tamaño de las bolitas
-              onPageSelected: (int index) {
-                _pageController.animateToPage(
-                  index,
-                  duration: Duration(milliseconds: 500),
-                  curve: Curves.ease,
-                );
-              },
+              itemCount: 4,
+              selectedDotColor: Colors.white,
+              dotColor: Colors.grey,
+              size: 12.0,
+              // Eliminamos la animación onPageSelected
             ),
           ),
         ],
@@ -161,19 +148,16 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class CustomPage extends StatelessWidget {
-  final String backgroundImage; // Ruta de la imagen de fondo
-  // final String pageTitle; // Título de la página
+  final String backgroundImage;
 
   const CustomPage({
     required this.backgroundImage,
-    // required this.pageTitle,
   });
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Fondo de imagen
         Image.asset(
           backgroundImage,
           fit: BoxFit.cover,
@@ -182,7 +166,7 @@ class CustomPage extends StatelessWidget {
         ),
         Scaffold(
           appBar: AppBar(
-            title: Text(""), // Sin título en la AppBar
+            title: Text(""),
             backgroundColor: Colors.transparent,
             elevation: 0,
           ),
@@ -190,17 +174,7 @@ class CustomPage extends StatelessWidget {
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Text(
-                //   pageTitle, // Utiliza el título pasado como argumento
-                //   style: TextStyle(
-                //     color: Colors.white,
-                //     fontSize: 24,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
-                // Agrega otros elementos de contenido aquí
-              ],
+              children: [],
             ),
           ),
         ),
