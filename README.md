@@ -25,6 +25,8 @@ Indicadores de Página: Para mejorar la experiencia de desplazamiento, hemos imp
 Esta aplicación representa un emocionante proyecto de desarrollo de aplicaciones móviles que aprovecha las ventajas de Dart y Flutter para brindar a los usuarios una experiencia similar a la de Netflix. Puedes disfrutar de tus películas y series favoritas con una interfaz intuitiva y todas las características que esperas de una plataforma de transmisión de contenido de alta calidad.
 
 
+https://github.com/Gualbertokuchay/netflix/assets/90735517/f597c72d-7319-4262-9f46-0d51c74fff3f
+
 ![Screenshot_1698948672](https://github.com/Gualbertokuchay/netflix/assets/90735517/758bebd9-21fe-45ce-9684-c6e6c345e169)
 
 ![Screenshot_1698948673](https://github.com/Gualbertokuchay/netflix/assets/90735517/e5c492c1-bb83-425d-a88a-eb186e45bb50)
